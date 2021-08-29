@@ -1,5 +1,5 @@
 # SpaceShooter
-Variation of a Space Shooter game written in C# using Unity with Managers
+Example of a Space Shooter game written in C# using Unity with Managers
 
 **WARNING! UNDONE YET!**
 
