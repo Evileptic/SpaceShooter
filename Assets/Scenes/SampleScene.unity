@@ -469,7 +469,13 @@ MonoBehaviour:
   PlayerSpeed: 15
   SpaceBackSpeed: 0.15
   SpaceForeSpeed: 0.3
-  PlanetsHorizontalRange: 0
+  PlanetsHorizontalRange: 10
+  PlanetPrefabs:
+  - {fileID: 6188992827414347904, guid: b4f602ef334869048b7424d53343da2b, type: 3}
+  - {fileID: 6188992827414347904, guid: b4f712a2c8b74bb44bcb4469d661bcdd, type: 3}
+  - {fileID: 6188992827414347904, guid: c79e9907de2c2674baf1226e8823b6db, type: 3}
+  - {fileID: 6188992827414347904, guid: 3a1b4171115b16440b0c2721e7591c09, type: 3}
+  PlanetSpawnDelay: 60
   CameraSmooth: 20
 --- !u!1 &636579432
 GameObject:
@@ -1039,7 +1045,7 @@ MonoBehaviour:
   RightLevelLimit: {fileID: 315854268}
   TopLevelLimit: {fileID: 833034070}
   BottomLevelLimit: {fileID: 831414085}
-  PlanetsSpawnPoint: {fileID: 0}
+  PlanetsSpawnPoint: {fileID: 1452293249}
   SpaceBackground: {fileID: 636579434}
   SpaceForeground: {fileID: 838373734}
 --- !u!4 &1424780487
@@ -1080,7 +1086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452293248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.76, z: 0}
+  m_LocalPosition: {x: 0, y: 14.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -16,8 +16,24 @@ public class LevelManager : MonoBehaviour
 
     private void Awake() => Instance = this;
 
+    private float planetSpawnTimeout;
+
     private void Update()
     {
+        if (Time.time > planetSpawnTimeout)
+        {
+            var spawnPoint = Vector3.zero;
+            spawnPoint.y = PlanetsSpawnPoint.transform.position.y;
+            spawnPoint.x = Random.Range(-Configuration.Instance.PlanetsHorizontalRange, Configuration.Instance.PlanetsHorizontalRange);
+            var planetForInstance = Configuration.Instance.PlanetPrefabs[Random.Range(0, Configuration.Instance.PlanetPrefabs.Length)];
+            float spawnScale = Random.Range(0.7f, 1.2f);
+            var spawnedPlanet = Instantiate(planetForInstance, spawnPoint, Quaternion.identity);
+            spawnedPlanet.transform.localScale *= spawnScale;
+            float spawnSpeed = Random.Range(0.4f, 0.6f);
+            spawnedPlanet.GetComponent<DownMover>().MoveSpeed = spawnSpeed;
+            planetSpawnTimeout = Time.time + Configuration.Instance.PlanetSpawnDelay;
+        }
+
         Vector2 spaceBackOffset = SpaceBackground.material.mainTextureOffset;
         spaceBackOffset.y -= Configuration.Instance.SpaceBackSpeed / 1000f;
         SpaceBackground.material.mainTextureOffset = spaceBackOffset;
