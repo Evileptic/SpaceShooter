@@ -16,6 +16,8 @@ public class Configuration : MonoBehaviour
     [Range(0f, 1f)]
     public float SpaceForeSpeed = 0.3f;
 
+    public float PlanetsHorizontalRange;
+
     [Header("Others Config")]
     public float CameraSmooth;
 }

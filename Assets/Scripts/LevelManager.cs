@@ -9,6 +9,8 @@ public class LevelManager : MonoBehaviour
     public Transform TopLevelLimit;
     public Transform BottomLevelLimit;
 
+    public Transform PlanetsSpawnPoint;
+
     public MeshRenderer SpaceBackground;
     public MeshRenderer SpaceForeground;
 
