@@ -17,6 +17,5 @@ public class Configuration : MonoBehaviour
     public float SpaceForeSpeed = 0.3f;
 
     [Header("Others Config")]
-    [Range(0f, 1f)]
-    public float CameraSmooth = 1f;
+    public float CameraSmooth;
 }

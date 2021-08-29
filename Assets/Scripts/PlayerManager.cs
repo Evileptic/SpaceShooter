@@ -3,14 +3,21 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance = null;
-    public LevelManager levelManager;
+
     public Transform PlayerTransform;
+    public GameObject LeftEngineFX;
+    public GameObject RightEngineFX;
+
+    private LevelManager levelManager;
 
     private void Awake() => Instance = this;
     private void Start() => levelManager = LevelManager.Instance;
 
     private void Update()
     {
+        LeftEngineFX.SetActive(InputManager.Input.x > 0.1f);
+        RightEngineFX.SetActive(InputManager.Input.x < -0.1f);
+
         var playerPosition = PlayerTransform.position;
 
         var targetX = InputManager.Input.x * Configuration.Instance.PlayerSpeed * Time.deltaTime;
