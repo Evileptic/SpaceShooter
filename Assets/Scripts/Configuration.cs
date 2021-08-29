@@ -7,14 +7,16 @@ public class Configuration : MonoBehaviour
     private void Awake() => Instance = this;
 
     [Header("Player Config")]
-    public float PlayerSpeed;
+    [Range(0f, 20f)]
+    public float PlayerSpeed = 15f;
 
     [Header("Level Config")]
     [Range(0f, 1f)]
-    public float SpaceBackSpeed;
+    public float SpaceBackSpeed = 0.15f;
     [Range(0f, 1f)]
-    public float SpaceForeSpeed;
+    public float SpaceForeSpeed = 0.3f;
 
     [Header("Others Config")]
-    public float CameraSmooth;
+    [Range(0f, 1f)]
+    public float CameraSmooth = 1f;
 }
