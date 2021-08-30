@@ -25,11 +25,12 @@ public class LevelManager : MonoBehaviour
             var spawnPoint = Vector3.zero;
             spawnPoint.y = PlanetsSpawnPoint.transform.position.y;
             spawnPoint.x = Random.Range(-Configuration.Instance.PlanetsHorizontalRange, Configuration.Instance.PlanetsHorizontalRange);
+            spawnPoint.z = Random.Range(100f, 120f);
             var planetForInstance = Configuration.Instance.PlanetPrefabs[Random.Range(0, Configuration.Instance.PlanetPrefabs.Length)];
-            float spawnScale = Random.Range(0.7f, 1.2f);
-            var spawnedPlanet = Instantiate(planetForInstance, spawnPoint, Quaternion.identity);
+            float spawnScale = Random.Range(1f, 3f);
+            var spawnedPlanet = Instantiate(planetForInstance, spawnPoint, planetForInstance.transform.rotation);
             spawnedPlanet.transform.localScale *= spawnScale;
-            float spawnSpeed = Random.Range(0.4f, 0.6f);
+            float spawnSpeed = Random.Range(1f, 2f);
             spawnedPlanet.GetComponent<DownMover>().MoveSpeed = spawnSpeed;
             planetSpawnTimeout = Time.time + Configuration.Instance.PlanetSpawnDelay;
         }
