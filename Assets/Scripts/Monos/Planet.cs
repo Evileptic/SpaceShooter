@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DownMover : MonoBehaviour
+public class Planet : MonoBehaviour
 {
     public float MoveSpeed;
 

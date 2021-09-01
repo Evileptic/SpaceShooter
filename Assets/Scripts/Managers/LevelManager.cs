@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
             var spawnedPlanet = Instantiate(planetForInstance, spawnPoint, planetForInstance.transform.rotation);
             spawnedPlanet.transform.localScale *= spawnScale;
             float spawnSpeed = Random.Range(1f, 2f);
-            spawnedPlanet.GetComponent<DownMover>().MoveSpeed = spawnSpeed;
+            spawnedPlanet.MoveSpeed = spawnSpeed;
             planetSpawnTimeout = Time.time + Configuration.Instance.PlanetSpawnDelay;
         }
 

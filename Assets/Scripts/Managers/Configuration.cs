@@ -17,7 +17,7 @@ public class Configuration : MonoBehaviour
     public float SpaceForeSpeed = 0.3f;
 
     public float PlanetsHorizontalRange;
-    public GameObject[] PlanetPrefabs;
+    public Planet[] PlanetPrefabs;
     public float PlanetSpawnDelay;
 
     [Header("Others Config")]

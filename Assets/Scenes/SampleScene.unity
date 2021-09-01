@@ -475,10 +475,10 @@ MonoBehaviour:
   SpaceForeSpeed: 0.3
   PlanetsHorizontalRange: 50
   PlanetPrefabs:
-  - {fileID: 6188992827414347904, guid: b4f602ef334869048b7424d53343da2b, type: 3}
-  - {fileID: 6188992827414347904, guid: b4f712a2c8b74bb44bcb4469d661bcdd, type: 3}
-  - {fileID: 6188992827414347904, guid: c79e9907de2c2674baf1226e8823b6db, type: 3}
-  - {fileID: 6188992827414347904, guid: 3a1b4171115b16440b0c2721e7591c09, type: 3}
+  - {fileID: 6188992827414348031, guid: b4f602ef334869048b7424d53343da2b, type: 3}
+  - {fileID: 6188992827414348031, guid: b4f712a2c8b74bb44bcb4469d661bcdd, type: 3}
+  - {fileID: 6188992827414348031, guid: c79e9907de2c2674baf1226e8823b6db, type: 3}
+  - {fileID: 6188992827414348031, guid: 3a1b4171115b16440b0c2721e7591c09, type: 3}
   PlanetSpawnDelay: 30
   CameraSmooth: 20
 --- !u!1 &636579432
