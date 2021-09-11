@@ -16,11 +16,11 @@ public class LevelManager : MonoBehaviour
 
     private void Awake() => Instance = this;
 
-    private float planetSpawnTimeout;
+    private float planetSpawnTime;
 
     private void Update()
     {
-        if (Time.time > planetSpawnTimeout)
+        if (Time.time > planetSpawnTime)
         {
             var spawnPoint = Vector3.zero;
             spawnPoint.y = PlanetsSpawnPoint.transform.position.y;
@@ -32,7 +32,7 @@ public class LevelManager : MonoBehaviour
             spawnedPlanet.transform.localScale *= spawnScale;
             float spawnSpeed = Random.Range(1f, 2f);
             spawnedPlanet.MoveSpeed = spawnSpeed;
-            planetSpawnTimeout = Time.time + Configuration.Instance.PlanetSpawnDelay;
+            planetSpawnTime = Time.time + Configuration.Instance.PlanetSpawnDelay;
         }
 
         Vector2 spaceBackOffset = SpaceBackground.material.mainTextureOffset;

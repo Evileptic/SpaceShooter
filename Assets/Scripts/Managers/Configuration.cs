@@ -19,6 +19,12 @@ public class Configuration : MonoBehaviour
     public float PlanetsHorizontalRange;
     public PlanetActor[] PlanetPrefabs;
     public float PlanetSpawnDelay;
+    public EnemyActor EnemyPrefab;
+
+    [Header("Enemies Config")]
+    public int EnemiesCount;
+    public float EnemiesSpeed;
+    public float EnemySpawnDuration;
 
     [Header("Others Config")]
     public float CameraSmooth;
