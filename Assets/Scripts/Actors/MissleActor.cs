@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MissleActor : MoveDown
+public class MissleActor : MoveActor
 {
     public override void Update()
     {

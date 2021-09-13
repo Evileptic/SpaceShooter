@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlanetActor : MoveDown
+public class PlanetActor : MoveActor
 {
     public override void Update()
     {

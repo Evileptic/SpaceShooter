@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyActor : MoveDown
+public class EnemyActor : MoveActor
 {
     public override void Update()
     {
