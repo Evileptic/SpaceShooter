@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject RightEngineFX;
     public Transform LeftBulletSpawnPoint;
     public Transform RightBulletSpawnPoint;
+    public AudioSource PlayerAudioSource;
 
     private LevelManager levelManager;
 
@@ -35,6 +36,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Shoot()
     {
+        PlayerAudioSource.PlayOneShot(Configuration.Instance.PlayerShootClip);
         Instantiate(Configuration.Instance.PlayerBulletPrefab, LeftBulletSpawnPoint.transform.position, Quaternion.identity).MoveSpeed = Configuration.Instance.PlayerBulletSpeed;
         Instantiate(Configuration.Instance.PlayerBulletPrefab, RightBulletSpawnPoint.transform.position, Quaternion.identity).MoveSpeed = Configuration.Instance.PlayerBulletSpeed;
     }

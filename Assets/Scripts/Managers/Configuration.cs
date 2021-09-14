@@ -33,4 +33,7 @@ public class Configuration : MonoBehaviour
     [Header("Others Config")]
     public float CameraSmooth;
     public float BulletsDestroyDelay;
+
+    [Header("Sound Clips")]
+    public AudioClip PlayerShootClip;
 }
