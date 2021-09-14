@@ -7,6 +7,8 @@ public class PlayerManager : MonoBehaviour
     public Transform PlayerTransform;
     public GameObject LeftEngineFX;
     public GameObject RightEngineFX;
+    public Transform LeftBulletSpawnPoint;
+    public Transform RightBulletSpawnPoint;
 
     private LevelManager levelManager;
 
@@ -29,5 +31,11 @@ public class PlayerManager : MonoBehaviour
         playerPosition.y = clampedY;
 
         PlayerTransform.position = playerPosition;
+    }
+
+    public void Shoot()
+    {
+        Instantiate(Configuration.Instance.PlayerBulletPrefab, LeftBulletSpawnPoint.transform.position, Quaternion.identity).MoveSpeed = Configuration.Instance.PlayerBulletSpeed;
+        Instantiate(Configuration.Instance.PlayerBulletPrefab, RightBulletSpawnPoint.transform.position, Quaternion.identity).MoveSpeed = Configuration.Instance.PlayerBulletSpeed;
     }
 }

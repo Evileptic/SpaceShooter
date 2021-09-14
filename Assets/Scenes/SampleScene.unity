@@ -407,6 +407,8 @@ MonoBehaviour:
   PlayerTransform: {fileID: 1940202767}
   LeftEngineFX: {fileID: 2003826463}
   RightEngineFX: {fileID: 51688943}
+  LeftBulletSpawnPoint: {fileID: 3989237709051066165}
+  RightBulletSpawnPoint: {fileID: 3989237709051066164}
 --- !u!4 &552793024
 Transform:
   m_ObjectHideFlags: 0
@@ -465,6 +467,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSpeed: 5
+  PlayerBulletPrefab: {fileID: 65889556495557233, guid: 9e4b09138527a0d4cbac146d77f4f2e6,
+    type: 3}
+  PlayerBulletSpeed: 7
   SpaceBackSpeed: 0.15
   SpaceForeSpeed: 0.3
   PlanetsHorizontalRange: 50
@@ -476,10 +481,14 @@ MonoBehaviour:
   PlanetSpawnDelay: 30
   EnemyPrefab: {fileID: 6282828809185039592, guid: 80bed325466558446be7657f1e832eb6,
     type: 3}
+  EnemyBulletPrefab: {fileID: 2372656493019699143, guid: 06e055cdabdee2746b7d6a7fd60f3142,
+    type: 3}
+  EnemyBulletSpeed: 2
   EnemiesCount: 20
   EnemiesSpeed: 1.4
   EnemySpawnDuration: 1
   CameraSmooth: 20
+  BulletsDestroyDelay: 5
 --- !u!1 &636579432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,3 +1360,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a90379d99a611049a54294216bb92eb, type: 3}
+--- !u!4 &3989237709051066164 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7514866748456929568, guid: 3a90379d99a611049a54294216bb92eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3989237709051066163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3989237709051066165 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2717029029006770860, guid: 3a90379d99a611049a54294216bb92eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3989237709051066163}
+  m_PrefabAsset: {fileID: 0}

@@ -9,6 +9,8 @@ public class Configuration : MonoBehaviour
     [Header("Player Config")]
     [Range(0f, 20f)]
     public float PlayerSpeed = 15f;
+    public BulletActor PlayerBulletPrefab;
+    public float PlayerBulletSpeed;
 
     [Header("Level Config")]
     [Range(0f, 1f)]
@@ -20,6 +22,8 @@ public class Configuration : MonoBehaviour
     public PlanetActor[] PlanetPrefabs;
     public float PlanetSpawnDelay;
     public EnemyActor EnemyPrefab;
+    public BulletActor EnemyBulletPrefab;
+    public float EnemyBulletSpeed;
 
     [Header("Enemies Config")]
     public int EnemiesCount;
@@ -28,4 +32,5 @@ public class Configuration : MonoBehaviour
 
     [Header("Others Config")]
     public float CameraSmooth;
+    public float BulletsDestroyDelay;
 }

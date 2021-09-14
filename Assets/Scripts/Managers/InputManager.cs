@@ -8,5 +8,10 @@ public class InputManager : MonoBehaviour
     {
         Input.x = UnityEngine.Input.GetAxis("Horizontal");
         Input.y = UnityEngine.Input.GetAxis("Vertical");
+
+        if (UnityEngine.Input.GetMouseButtonDown(0) || UnityEngine.Input.GetKeyDown(KeyCode.Space))
+        {
+            PlayerManager.Instance.Shoot();
+        }
     }
 }
