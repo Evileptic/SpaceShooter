@@ -480,17 +480,19 @@ MonoBehaviour:
   - {fileID: 6188992827414348031, guid: c79e9907de2c2674baf1226e8823b6db, type: 3}
   - {fileID: 6188992827414348031, guid: 3a1b4171115b16440b0c2721e7591c09, type: 3}
   PlanetSpawnDelay: 30
+  EnemiesCount: 20
+  EnemiesSpeed: 1.4
+  EnemySpawnDuration: 1
+  EnemyShootDelay: 3
   EnemyPrefab: {fileID: 6282828809185039592, guid: 80bed325466558446be7657f1e832eb6,
     type: 3}
   EnemyBulletPrefab: {fileID: 2372656493019699143, guid: 06e055cdabdee2746b7d6a7fd60f3142,
     type: 3}
-  EnemyBulletSpeed: 2
-  EnemiesCount: 20
-  EnemiesSpeed: 1.4
-  EnemySpawnDuration: 1
+  EnemyBulletSpeed: 10
   CameraSmooth: 20
   BulletsDestroyDelay: 5
   PlayerShootClip: {fileID: 8300000, guid: 467c5077fda81144c9d04ee658ab9c42, type: 3}
+  EnemyShootClip: {fileID: 8300000, guid: f2cdb6429680a214d8f07b83029024ef, type: 3}
 --- !u!1 &636579432
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,9 +14,9 @@ public class LevelManager : MonoBehaviour
     public MeshRenderer SpaceBackground;
     public MeshRenderer SpaceForeground;
 
-    private void Awake() => Instance = this;
-
     private float planetSpawnTime;
+
+    private void Awake() => Instance = this;
 
     private void Update()
     {

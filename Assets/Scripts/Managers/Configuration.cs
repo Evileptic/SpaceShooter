@@ -21,14 +21,15 @@ public class Configuration : MonoBehaviour
     public float PlanetsHorizontalRange;
     public PlanetActor[] PlanetPrefabs;
     public float PlanetSpawnDelay;
-    public EnemyActor EnemyPrefab;
-    public BulletActor EnemyBulletPrefab;
-    public float EnemyBulletSpeed;
 
     [Header("Enemies Config")]
     public int EnemiesCount;
     public float EnemiesSpeed;
     public float EnemySpawnDuration;
+    public float EnemyShootDelay;
+    public EnemyActor EnemyPrefab;
+    public BulletActor EnemyBulletPrefab;
+    public float EnemyBulletSpeed;
 
     [Header("Others Config")]
     public float CameraSmooth;
@@ -36,4 +37,5 @@ public class Configuration : MonoBehaviour
 
     [Header("Sound Clips")]
     public AudioClip PlayerShootClip;
+    public AudioClip EnemyShootClip;
 }
