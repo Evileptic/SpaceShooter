@@ -92,6 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2372656493019699140}
   - component: {fileID: 2372656493019699143}
+  - component: {fileID: 5885091965780783369}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: Untagged
@@ -129,3 +130,19 @@ MonoBehaviour:
   MoveDirection: 1
   MoveSpeed: 0
   BulletOwner: 1
+--- !u!70 &5885091965780783369
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2372656493019699142}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.003663402, y: -0.0036634207}
+  m_Size: {x: 0.063797556, y: 0.5750462}
+  m_Direction: 0

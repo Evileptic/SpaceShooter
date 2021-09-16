@@ -11,6 +11,8 @@ public class Configuration : MonoBehaviour
     public float PlayerSpeed = 15f;
     public BulletActor PlayerBulletPrefab;
     public float PlayerBulletSpeed;
+    public float PlayerRespawnDelay;
+    public ParticleSystem PlayerDestroyParticle;
 
     [Header("Level Config")]
     [Range(0f, 1f)]

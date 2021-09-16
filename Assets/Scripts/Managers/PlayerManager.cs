@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -18,6 +19,8 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
+        if (!PlayerTransform.gameObject.activeSelf) return;
+
         LeftEngineFX.SetActive(InputManager.Input.x > 0.1f);
         RightEngineFX.SetActive(InputManager.Input.x < -0.1f);
 
@@ -36,8 +39,24 @@ public class PlayerManager : MonoBehaviour
 
     public void Shoot()
     {
+        if (!PlayerTransform.gameObject.activeSelf) return;
+
         PlayerAudioSource.PlayOneShot(Configuration.Instance.PlayerShootClip);
         Instantiate(Configuration.Instance.PlayerBulletPrefab, LeftBulletSpawnPoint.transform.position, Quaternion.identity).MoveSpeed = Configuration.Instance.PlayerBulletSpeed;
         Instantiate(Configuration.Instance.PlayerBulletPrefab, RightBulletSpawnPoint.transform.position, Quaternion.identity).MoveSpeed = Configuration.Instance.PlayerBulletSpeed;
+    }
+
+    public void DestroyPlayer()
+    {
+        var destroyParticle = Instantiate(Configuration.Instance.PlayerDestroyParticle, PlayerTransform.position, Quaternion.identity);
+        Destroy(destroyParticle.gameObject, 5f);
+        PlayerTransform.gameObject.SetActive(false);
+        StartCoroutine(RespawnPlayer());
+    }
+
+    private IEnumerator RespawnPlayer()
+    {
+        yield return new WaitForSeconds(Configuration.Instance.PlayerRespawnDelay);
+        PlayerTransform.gameObject.SetActive(true);
     }
 }

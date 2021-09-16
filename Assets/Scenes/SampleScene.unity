@@ -305,6 +305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
+  - component: {fileID: 519420029}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -312,6 +313,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!81 &519420029
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -471,6 +480,9 @@ MonoBehaviour:
   PlayerBulletPrefab: {fileID: 65889556495557233, guid: 9e4b09138527a0d4cbac146d77f4f2e6,
     type: 3}
   PlayerBulletSpeed: 7
+  PlayerRespawnDelay: 3
+  PlayerDestroyParticle: {fileID: 239623620752264301, guid: 2efee1df8aab10440b92ca552cb75b92,
+    type: 3}
   SpaceBackSpeed: 0.15
   SpaceForeSpeed: 0.3
   PlanetsHorizontalRange: 50
@@ -483,7 +495,7 @@ MonoBehaviour:
   EnemiesCount: 20
   EnemiesSpeed: 1.4
   EnemySpawnDuration: 1
-  EnemyShootDelay: 3
+  EnemyShootDelay: 5
   EnemyPrefab: {fileID: 6282828809185039592, guid: 80bed325466558446be7657f1e832eb6,
     type: 3}
   EnemyBulletPrefab: {fileID: 2372656493019699143, guid: 06e055cdabdee2746b7d6a7fd60f3142,
@@ -589,37 +601,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!1 &650516388 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3989237707215852093, guid: 3a90379d99a611049a54294216bb92eb,
-    type: 3}
-  m_PrefabInstance: {fileID: 3989237709051066163}
-  m_PrefabAsset: {fileID: 0}
---- !u!169 &650516389
-AudioLowPassFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650516388}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_LowpassResonanceQ: 1
-  lowpassLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.34060937
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!82 &650516390 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 6485442008198462899, guid: 3a90379d99a611049a54294216bb92eb,
