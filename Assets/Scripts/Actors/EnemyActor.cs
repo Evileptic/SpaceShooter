@@ -21,7 +21,7 @@ public class EnemyActor : MoveActor
 
         if (Time.time > shootTime)
         {
-            AudioSource.PlayOneShot(Configuration.Instance.EnemyShootClip);
+            AudioSource.PlayOneShot(Configuration.Instance.ShootClip);
             Instantiate(Configuration.Instance.EnemyBulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity).MoveSpeed = Configuration.Instance.EnemyBulletSpeed;
             shootTime = Time.time + Configuration.Instance.EnemyShootDelay;
         }

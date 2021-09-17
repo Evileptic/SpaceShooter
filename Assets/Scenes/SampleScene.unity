@@ -504,8 +504,8 @@ MonoBehaviour:
   EnemyRespawnDelay: 4
   CameraSmooth: 20
   BulletsDestroyDelay: 5
-  PlayerShootClip: {fileID: 8300000, guid: 467c5077fda81144c9d04ee658ab9c42, type: 3}
-  EnemyShootClip: {fileID: 8300000, guid: f2cdb6429680a214d8f07b83029024ef, type: 3}
+  ShootClip: {fileID: 8300000, guid: 3388df8450c6ee54d815c52683a5ece5, type: 3}
+  ExplosionClip: {fileID: 8300000, guid: 003e8dba954ab814d80f280ed8cb9f56, type: 3}
 --- !u!1 &636579432
 GameObject:
   m_ObjectHideFlags: 0

@@ -41,7 +41,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (!PlayerTransform.gameObject.activeSelf) return;
 
-        PlayerAudioSource.PlayOneShot(Configuration.Instance.PlayerShootClip);
+        PlayerAudioSource.PlayOneShot(Configuration.Instance.ShootClip);
         Instantiate(Configuration.Instance.PlayerBulletPrefab, LeftBulletSpawnPoint.transform.position, Quaternion.identity).MoveSpeed = Configuration.Instance.PlayerBulletSpeed;
         Instantiate(Configuration.Instance.PlayerBulletPrefab, RightBulletSpawnPoint.transform.position, Quaternion.identity).MoveSpeed = Configuration.Instance.PlayerBulletSpeed;
     }

@@ -39,6 +39,6 @@ public class Configuration : MonoBehaviour
     public float BulletsDestroyDelay;
 
     [Header("Sound Clips")]
-    public AudioClip PlayerShootClip;
-    public AudioClip EnemyShootClip;
+    public AudioClip ShootClip;
+    public AudioClip ExplosionClip;
 }
