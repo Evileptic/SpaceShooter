@@ -289,7 +289,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315854267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30, y: 0, z: 0}
+  m_LocalPosition: {x: 27, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -501,6 +501,7 @@ MonoBehaviour:
   EnemyBulletPrefab: {fileID: 2372656493019699143, guid: 06e055cdabdee2746b7d6a7fd60f3142,
     type: 3}
   EnemyBulletSpeed: 10
+  EnemyRespawnDelay: 4
   CameraSmooth: 20
   BulletsDestroyDelay: 5
   PlayerShootClip: {fileID: 8300000, guid: 467c5077fda81144c9d04ee658ab9c42, type: 3}
@@ -890,7 +891,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141491952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30, y: 0, z: 0}
+  m_LocalPosition: {x: -27, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

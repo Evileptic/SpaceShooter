@@ -32,6 +32,7 @@ public class Configuration : MonoBehaviour
     public EnemyActor EnemyPrefab;
     public BulletActor EnemyBulletPrefab;
     public float EnemyBulletSpeed;
+    public float EnemyRespawnDelay;
 
     [Header("Others Config")]
     public float CameraSmooth;

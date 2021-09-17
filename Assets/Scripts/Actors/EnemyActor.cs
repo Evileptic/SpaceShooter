@@ -26,4 +26,16 @@ public class EnemyActor : MoveActor
             shootTime = Time.time + Configuration.Instance.EnemyShootDelay;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent<BulletActor>(out var bulletActor))
+        {
+            if (bulletActor.BulletOwner == BulletOwner.PLAYER)
+            {
+                Destroy(bulletActor.gameObject);
+                EnemyManager.Instance.DestroyEnemy(this);
+            }
+        }
+    }
 }
