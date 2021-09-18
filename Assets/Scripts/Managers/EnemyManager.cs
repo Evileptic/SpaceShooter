@@ -1,5 +1,4 @@
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -7,25 +6,34 @@ public class EnemyManager : MonoBehaviour
     public Transform EnemiesSpawnPoint;
     public Transform EnemiesMoveLimit;
 
-    public int currentEnemiesCount;
+    private Configuration confuguration;
+    private LevelManager levelManager;
+    private int currentEnemiesCount;
     private float enemySpawnTime;
 
     private void Awake() => Instance = this;
 
+    private void Start()
+    {
+        confuguration = Configuration.Instance;
+        levelManager = LevelManager.Instance;
+    }
+    
     private void Update()
     {
         if (Time.time > enemySpawnTime)
         {
-            if (currentEnemiesCount < Configuration.Instance.EnemiesCount)
+            if (currentEnemiesCount < confuguration.EnemiesCount)
                 SpawnEnemy();
-            enemySpawnTime = Time.time + Configuration.Instance.EnemySpawnDuration;
+            enemySpawnTime = Time.time + confuguration.EnemySpawnDuration;
         }
     }
 
     public void DestroyEnemy(EnemyActor enemyActor)
     {
         currentEnemiesCount--;
-        var destroyParticle = Instantiate(Configuration.Instance.PlayerDestroyParticle, enemyActor.transform.position, Quaternion.identity);
+
+        var destroyParticle = Instantiate(confuguration.PlayerDestroyParticle, enemyActor.transform.position, Quaternion.identity);
         Destroy(enemyActor.gameObject);
         Destroy(destroyParticle.gameObject, 5f);
     }
@@ -33,10 +41,12 @@ public class EnemyManager : MonoBehaviour
     private void SpawnEnemy()
     {
         currentEnemiesCount++;
+
         var enemySpawnPoint = Vector3.zero;
-        enemySpawnPoint.x = Random.Range(LevelManager.Instance.LeftLevelLimit.transform.position.x, LevelManager.Instance.RightLevelLimit.transform.position.x);
+        enemySpawnPoint.x = Random.Range(levelManager.LeftLevelLimit.transform.position.x, levelManager.RightLevelLimit.transform.position.x);
         enemySpawnPoint.y = EnemiesSpawnPoint.transform.position.y;
-        var spawnedPlanet = Instantiate(Configuration.Instance.EnemyPrefab, enemySpawnPoint, Quaternion.identity);
-        spawnedPlanet.MoveSpeed = Configuration.Instance.EnemiesSpeed;
+
+        var spawnedPlanet = Instantiate(confuguration.EnemyPrefab, enemySpawnPoint, Quaternion.identity);
+        spawnedPlanet.MoveSpeed = confuguration.EnemiesSpeed;
     }
 }

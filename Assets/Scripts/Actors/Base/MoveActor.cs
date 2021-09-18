@@ -1,11 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum MoveDirection { UP, DOWN }
 
 public class MoveActor : MonoBehaviour
 {
-    public MoveDirection MoveDirection;
-    public float MoveSpeed;
+    [SerializeField] private MoveDirection MoveDirection;
+    [HideInInspector] public float MoveSpeed;
 
     public virtual void Update()
     {

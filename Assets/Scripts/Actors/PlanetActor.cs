@@ -1,10 +1,4 @@
-using UnityEngine;
-
-public class PlanetActor : MoveActor
+﻿public class PlanetActor : MoveActor
 {
-    public override void Update()
-    {
-        base.Update();
-
-    }
+    public override void Update() => base.Update();
 }

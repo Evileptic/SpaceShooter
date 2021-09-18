@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
@@ -6,41 +6,45 @@ public class LevelManager : MonoBehaviour
 
     public Transform LeftLevelLimit;
     public Transform RightLevelLimit;
-    public Transform TopLevelLimit;
-    public Transform BottomLevelLimit;
 
-    public Transform PlanetsSpawnPoint;
+    [SerializeField] private Transform planetsSpawnPoint;
+    [SerializeField] private MeshRenderer spaceBackground;
+    [SerializeField] private MeshRenderer spaceForeground;
 
-    public MeshRenderer SpaceBackground;
-    public MeshRenderer SpaceForeground;
-
+    private Configuration configuration;
+    private float backsSpeedDecreaset = 1000f;
     private float planetSpawnTime;
 
     private void Awake() => Instance = this;
+
+    private void Start() => configuration = Configuration.Instance;
+
 
     private void Update()
     {
         if (Time.time > planetSpawnTime)
         {
             var spawnPoint = Vector3.zero;
-            spawnPoint.y = PlanetsSpawnPoint.transform.position.y;
-            spawnPoint.x = Random.Range(-Configuration.Instance.PlanetsHorizontalRange, Configuration.Instance.PlanetsHorizontalRange);
-            spawnPoint.z = Random.Range(100f, 120f);
-            var planetForInstance = Configuration.Instance.PlanetPrefabs[Random.Range(0, Configuration.Instance.PlanetPrefabs.Length)];
-            float spawnScale = Random.Range(1f, 3f);
+            spawnPoint.y = planetsSpawnPoint.transform.position.y;
+            spawnPoint.x = Random.Range(-configuration.PlanetsHorizontalRange, configuration.PlanetsHorizontalRange);
+            spawnPoint.z = Random.Range(configuration.PlanetSpawnMinZLimit, configuration.PlanetSpawnMaxZLimit);
+            var planetForInstance = configuration.PlanetPrefabs[Random.Range(0, configuration.PlanetPrefabs.Length)];
+
+            float spawnScale = Random.Range(configuration.PlanetSpawnMinScaleLimit, configuration.PlanetSpawnMaxScaleLimit);
             var spawnedPlanet = Instantiate(planetForInstance, spawnPoint, planetForInstance.transform.rotation);
             spawnedPlanet.transform.localScale *= spawnScale;
-            float spawnSpeed = Random.Range(1f, 2f);
+
+            float spawnSpeed = Random.Range(configuration.PlanetSpawnMinSpeedLimit, configuration.PlanetSpawnMaxSpeedLimit);
             spawnedPlanet.MoveSpeed = spawnSpeed;
-            planetSpawnTime = Time.time + Configuration.Instance.PlanetSpawnDelay;
+            planetSpawnTime = Time.time + configuration.PlanetSpawnDelay;
         }
 
-        Vector2 spaceBackOffset = SpaceBackground.material.mainTextureOffset;
-        spaceBackOffset.y -= Configuration.Instance.SpaceBackSpeed / 1000f;
-        SpaceBackground.material.mainTextureOffset = spaceBackOffset;
+        Vector2 spaceBackOffset = spaceBackground.material.mainTextureOffset;
+        spaceBackOffset.y -= configuration.SpaceBackSpeed / backsSpeedDecreaset;
+        spaceBackground.material.mainTextureOffset = spaceBackOffset;
 
-        Vector2 spaceForeOffset = SpaceForeground.material.mainTextureOffset;
-        spaceForeOffset.y -= Configuration.Instance.SpaceForeSpeed / 1000f;
-        SpaceForeground.material.mainTextureOffset = spaceForeOffset;
+        Vector2 spaceForeOffset = spaceForeground.material.mainTextureOffset;
+        spaceForeOffset.y -= configuration.SpaceForeSpeed / backsSpeedDecreaset;
+        spaceForeground.material.mainTextureOffset = spaceForeOffset;
     }
 }

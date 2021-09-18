@@ -1,29 +1,37 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyActor : MoveActor
 {
-    public Transform BulletSpawnPoint;
-    public AudioSource AudioSource;
+    [SerializeField] private Transform BulletSpawnPoint;
+    [SerializeField] private AudioSource AudioSource;
 
+    private Configuration configuration;
+    private EnemyManager enemyManager;
     private float shootTime;
+
+    private void Start()
+    {
+        configuration = Configuration.Instance;
+        enemyManager = EnemyManager.Instance;
+    }
 
     public override void Update()
     {
         base.Update();
 
-        if (transform.position.y < EnemyManager.Instance.EnemiesMoveLimit.position.y)
+        if (transform.position.y < enemyManager.EnemiesMoveLimit.position.y)
         {
             Vector3 respawnPosition = Vector3.zero;
             respawnPosition.x = transform.position.x;
-            respawnPosition.y = EnemyManager.Instance.EnemiesSpawnPoint.position.y;
+            respawnPosition.y = enemyManager.EnemiesSpawnPoint.position.y;
             transform.position = respawnPosition;
         }
 
         if (Time.time > shootTime)
         {
-            AudioSource.PlayOneShot(Configuration.Instance.ShootClip);
-            Instantiate(Configuration.Instance.EnemyBulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity).MoveSpeed = Configuration.Instance.EnemyBulletSpeed;
-            shootTime = Time.time + Configuration.Instance.EnemyShootDelay;
+            AudioSource.PlayOneShot(configuration.ShootClip);
+            Instantiate(configuration.EnemyBulletPrefab, BulletSpawnPoint.transform.position, Quaternion.identity).MoveSpeed = configuration.EnemyBulletSpeed;
+            shootTime = Time.time + configuration.EnemyShootDelay;
         }
     }
 
@@ -34,7 +42,7 @@ public class EnemyActor : MoveActor
             if (bulletActor.BulletOwner == BulletOwner.PLAYER)
             {
                 Destroy(bulletActor.gameObject);
-                EnemyManager.Instance.DestroyEnemy(this);
+                enemyManager.DestroyEnemy(this);
             }
         }
     }

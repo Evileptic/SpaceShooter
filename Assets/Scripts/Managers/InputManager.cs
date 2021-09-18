@@ -10,8 +10,6 @@ public class InputManager : MonoBehaviour
         Input.y = UnityEngine.Input.GetAxis("Vertical");
 
         if (UnityEngine.Input.GetMouseButtonDown(0) || UnityEngine.Input.GetKeyDown(KeyCode.Space))
-        {
             PlayerManager.Instance.Shoot();
-        }
     }
 }

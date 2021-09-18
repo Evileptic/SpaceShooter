@@ -19,10 +19,15 @@ public class Configuration : MonoBehaviour
     public float SpaceBackSpeed = 0.15f;
     [Range(0f, 1f)]
     public float SpaceForeSpeed = 0.3f;
-
     public float PlanetsHorizontalRange;
     public PlanetActor[] PlanetPrefabs;
     public float PlanetSpawnDelay;
+    public float PlanetSpawnMinZLimit = 100f;
+    public float PlanetSpawnMaxZLimit = 120f;
+    public float PlanetSpawnMinScaleLimit = 1f;
+    public float PlanetSpawnMaxScaleLimit = 3f;
+    public float PlanetSpawnMinSpeedLimit = 1f;
+    public float PlanetSpawnMaxSpeedLimit = 2f;
 
     [Header("Enemies Config")]
     public int EnemiesCount;

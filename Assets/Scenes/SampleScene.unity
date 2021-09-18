@@ -414,11 +414,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerTransform: {fileID: 1940202767}
-  LeftEngineFX: {fileID: 2003826463}
-  RightEngineFX: {fileID: 51688943}
-  LeftBulletSpawnPoint: {fileID: 3989237709051066165}
-  RightBulletSpawnPoint: {fileID: 3989237709051066164}
-  PlayerAudioSource: {fileID: 650516390}
+  leftEngineFX: {fileID: 2003826463}
+  rightEngineFX: {fileID: 51688943}
+  leftBulletSpawnPoint: {fileID: 3989237709051066165}
+  rightBulletSpawnPoint: {fileID: 3989237709051066164}
+  playerAudioSource: {fileID: 650516390}
+  playerEngineAudioSource: {fileID: 520668272}
+  topLevelLimit: {fileID: 833034070}
+  bottomLevelLimit: {fileID: 831414085}
 --- !u!4 &552793024
 Transform:
   m_ObjectHideFlags: 0
@@ -492,6 +495,12 @@ MonoBehaviour:
   - {fileID: 6188992827414348031, guid: c79e9907de2c2674baf1226e8823b6db, type: 3}
   - {fileID: 6188992827414348031, guid: 3a1b4171115b16440b0c2721e7591c09, type: 3}
   PlanetSpawnDelay: 30
+  PlanetSpawnMinZLimit: 100
+  PlanetSpawnMaxZLimit: 120
+  PlanetSpawnMinScaleLimit: 1
+  PlanetSpawnMaxScaleLimit: 3
+  PlanetSpawnMinSpeedLimit: 1
+  PlanetSpawnMaxSpeedLimit: 2
   EnemiesCount: 20
   EnemiesSpeed: 1.4
   EnemySpawnDuration: 1
@@ -958,11 +967,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LeftLevelLimit: {fileID: 1141491953}
   RightLevelLimit: {fileID: 315854268}
-  TopLevelLimit: {fileID: 833034070}
-  BottomLevelLimit: {fileID: 831414085}
-  PlanetsSpawnPoint: {fileID: 1452293249}
-  SpaceBackground: {fileID: 636579434}
-  SpaceForeground: {fileID: 838373734}
+  planetsSpawnPoint: {fileID: 1452293249}
+  spaceBackground: {fileID: 636579434}
+  spaceForeground: {fileID: 838373734}
 --- !u!4 &1424780487
 Transform:
   m_ObjectHideFlags: 0
@@ -1080,7 +1087,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1852442320
+--- !u!4 &1940202767 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3989237707215852092, guid: 3a90379d99a611049a54294216bb92eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3989237709051066163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1944208137
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1088,56 +1101,79 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1852442322}
-  - component: {fileID: 1852442321}
-  - component: {fileID: 1852442323}
+  - component: {fileID: 1944208139}
+  - component: {fileID: 1944208138}
   m_Layer: 0
-  m_Name: AudioManager
+  m_Name: EnemyManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1852442321
+--- !u!114 &1944208138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852442320}
+  m_GameObject: {fileID: 1944208137}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b03627b405f1fe94197e5955ca31a116, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ebbd2f75f57b084d95f0fc54388d8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EngineAudio: {fileID: 520668272}
---- !u!4 &1852442322
+  EnemiesSpawnPoint: {fileID: 966977365}
+  EnemiesMoveLimit: {fileID: 2136025688}
+--- !u!4 &1944208139
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852442320}
+  m_GameObject: {fileID: 1944208137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1852442323
+--- !u!1 &2003826463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3988690480941763473, guid: 3a90379d99a611049a54294216bb92eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3989237709051066163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2072080284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2072080286}
+  - component: {fileID: 2072080285}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &2072080285
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852442320}
+  m_GameObject: {fileID: 2072080284}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bf7f0c35cd6d3eb43898f71779f77017, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1221,64 +1257,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!4 &1940202767 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3989237707215852092, guid: 3a90379d99a611049a54294216bb92eb,
-    type: 3}
-  m_PrefabInstance: {fileID: 3989237709051066163}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1944208137
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1944208139}
-  - component: {fileID: 1944208138}
-  m_Layer: 0
-  m_Name: EnemyManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1944208138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944208137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebbd2f75f57b084d95f0fc54388d8ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemiesSpawnPoint: {fileID: 966977365}
-  EnemiesMoveLimit: {fileID: 2136025688}
-  currentEnemiesCount: 0
---- !u!4 &1944208139
+--- !u!4 &2072080286
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944208137}
+  m_GameObject: {fileID: 2072080284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2003826463 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3988690480941763473, guid: 3a90379d99a611049a54294216bb92eb,
-    type: 3}
-  m_PrefabInstance: {fileID: 3989237709051066163}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2136025687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,10 +1368,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6485442008198462899, guid: 3a90379d99a611049a54294216bb92eb,
+    - target: {fileID: 6557569146458469897, guid: 3a90379d99a611049a54294216bb92eb,
         type: 3}
-      propertyPath: m_Volume
-      value: 0.4
+      propertyPath: m_Name
+      value: EngineAudioSource
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a90379d99a611049a54294216bb92eb, type: 3}

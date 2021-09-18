@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public enum BulletOwner { PLAYER, ENEMY }
 
 public class BulletActor : MoveActor
