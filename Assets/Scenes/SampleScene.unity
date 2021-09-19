@@ -513,6 +513,7 @@ MonoBehaviour:
   EnemyRespawnDelay: 4
   CameraSmooth: 20
   BulletsDestroyDelay: 5
+  PlayerEngineInputThreshold: 0.1
   ShootClip: {fileID: 8300000, guid: 3388df8450c6ee54d815c52683a5ece5, type: 3}
   ExplosionClip: {fileID: 8300000, guid: 003e8dba954ab814d80f280ed8cb9f56, type: 3}
 --- !u!1 &636579432

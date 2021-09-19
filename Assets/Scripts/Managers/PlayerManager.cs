@@ -31,17 +31,17 @@ public class PlayerManager : MonoBehaviour
     {
         if (!PlayerTransform.gameObject.activeSelf) return;
 
-        leftEngineFX.SetActive(InputManager.Input.x > 0.1f);
-        rightEngineFX.SetActive(InputManager.Input.x < -0.1f);
+        leftEngineFX.SetActive(InputManager.Input.x > configuration.PlayerEngineInputThreshold);
+        rightEngineFX.SetActive(InputManager.Input.x < -configuration.PlayerEngineInputThreshold);
 
         var playerPosition = PlayerTransform.position;
 
         var targetX = InputManager.Input.x * configuration.PlayerSpeed * Time.deltaTime;
-        var clampedX = Mathf.Clamp(PlayerTransform.transform.position.x + targetX, levelManager.LeftLevelLimit.position.x, levelManager.RightLevelLimit.position.x);
+        var clampedX = Mathf.Clamp(PlayerTransform.position.x + targetX, levelManager.LeftLevelLimit.position.x, levelManager.RightLevelLimit.position.x);
         playerPosition.x = clampedX;
 
         var targetY = InputManager.Input.y * configuration.PlayerSpeed * Time.deltaTime;
-        var clampedY = Mathf.Clamp(PlayerTransform.transform.position.y + targetY, bottomLevelLimit.position.y, topLevelLimit.position.y);
+        var clampedY = Mathf.Clamp(PlayerTransform.position.y + targetY, bottomLevelLimit.position.y, topLevelLimit.position.y);
         playerPosition.y = clampedY;
 
         PlayerTransform.position = playerPosition;
@@ -54,8 +54,8 @@ public class PlayerManager : MonoBehaviour
         if (!PlayerTransform.gameObject.activeSelf) return;
 
         playerAudioSource.PlayOneShot(configuration.ShootClip);
-        Instantiate(configuration.PlayerBulletPrefab, leftBulletSpawnPoint.transform.position, Quaternion.identity).MoveSpeed = configuration.PlayerBulletSpeed;
-        Instantiate(configuration.PlayerBulletPrefab, rightBulletSpawnPoint.transform.position, Quaternion.identity).MoveSpeed = configuration.PlayerBulletSpeed;
+        Instantiate(configuration.PlayerBulletPrefab, leftBulletSpawnPoint.position, Quaternion.identity).MoveSpeed = configuration.PlayerBulletSpeed;
+        Instantiate(configuration.PlayerBulletPrefab, rightBulletSpawnPoint.position, Quaternion.identity).MoveSpeed = configuration.PlayerBulletSpeed;
     }
 
     public void DestroyPlayer()
